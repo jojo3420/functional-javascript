@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Practice</title>
+</head>
+<body>
+
+<script src="../../lib/underscore.js"></script>
+<script>
+    const numbers = [10, 20 , 30 , 40];
+    const allValues = [10, 20, null, 0, {}, 55, 'ss', false];
+    console.log('10 보다 큰 수의 배열 결과:', _.filter(numbers, n => n > 10));
+    console.log("truly list: ", _.filter(allValues, _.identity));
+    console.log('find 55 value:', _.find(allValues,n => n === 55));
+    console.log('find 55 index:', _.findIndex(allValues,n => n === 55));
+
+
+
+
+</script>
+</body>
+</html>
