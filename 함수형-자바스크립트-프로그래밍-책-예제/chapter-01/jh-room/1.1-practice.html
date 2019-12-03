@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Practice</title>
+</head>
+<body>
+
+<script src="../../lib/underscore.js"></script>
+<script>
+    const numbers = [10, 20 , 30 , 40];
+    const allValues = [10, 20, null, 0, {}, 55, 'ss', false];
+    console.log('10 보다 큰 수의 배열 결과:', _.filter(numbers, n => n > 10));
+    console.log("truly list: ", _.filter(allValues, _.identity));
+    console.log('find 55 value:', _.find(allValues,n => n === 55));
+    console.log('find 55 index:', _.findIndex(allValues,n => n === 55));
+
+    // Array.Prototype.map
+    function map (arr, predicate) {
+      const new_arr = [];
+      for (let i = 0; i < arr.length; i++) {
+        new_arr.push(predicate(arr[i], i, arr));
+      }
+      return new_arr;
+    }
+    const new_numbers = map(numbers, n => n * 10);
+    console.log('array.Prototype.map: ', new_numbers);
+
+    // Array.Prototype.each
+    function each (arr, predicate) {
+      for (let i = 0; i < arr.length; i++) {
+        predicate(arr[i], i, arr);
+      }
+    }
+
+    each(numbers, v => console.info('Array.Prototype.each: ', v));
+
+    // Array.Prototype.filter
+    function filter (arr, predicate) {
+      const new_arr = [];
+      for (let i = 0; i < arr.length; i++) {
+        if (predicate(arr[i], i, arr)) new_arr.push(arr[i])
+      }
+      return new_arr;
+    }
+
+    const filteredArr = filter(numbers, n => n > 10);
+    console.log('Array.Prototype.filter:', filteredArr);
+
+
+
+</script>
+</body>
+</html>
